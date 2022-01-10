@@ -1,8 +1,9 @@
 
 .hero {
+    background-image: url("images/computer-coding-background.webp");
+    background-size: cover;
+    background-position: center;
     padding: 150px;
-    background-color: black;
-
 }
 
 p {
@@ -18,7 +19,6 @@ p {
     font-size: 50px;
 }
 
-
 .startbutton {
     height: 40px;
     width: 100px;
@@ -28,3 +28,17 @@ p {
     font-size: 27px;
 }
 
+#countdown {
+    font-size: large;
+    color: whitesmoke;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+#Questions {
+    display:none;
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+    font-size: 10px;
+    text-align: center;
+}
