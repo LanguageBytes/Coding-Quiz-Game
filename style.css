@@ -10,12 +10,13 @@
     margin:0;
     padding:0;
     font-family: Arial, Helvetica, sans-serif;
-    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 html {
     height: 100vh;
 }
+
 /* General Styling */
 
 .container {
@@ -59,10 +60,6 @@ html {
     display: none;
 }
 
-p {
-    color: black;
-}
-
 
 .intro-text {
     color:white;
@@ -104,12 +101,18 @@ p {
 
 
 #Questions {
-    display:none;
     font-family: Arial, Helvetica, sans-serif;
-    color: black;
+    color: white;
     font-size: 10px;
     text-align: center;
+    padding: 2rem;
+    display:flex;
 }
+
+#game {
+    display: none;
+}
+
 
 h1 {
 
@@ -117,8 +120,16 @@ h1 {
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 350%;
-
 }
+
+ .userchoice-text {
+    color:white;
+}
+
+.userchoice-letter {
+    color:white;
+}
+
 
 @media screen and (max-width: 600px) {
     html {
