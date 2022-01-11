@@ -1,16 +1,34 @@
-//COUNTDOWN START
+//COUNTDOWN START!
 document.getElementById("start").addEventListener("click", function(){
     var timeleft = 60;
     var downloadTimer = setInterval(function function1(){
     document.getElementById("timer").innerHTML = timeleft;
     timeleft -= 1;
+    console.log ("game has started")
+
 
 //Questions appear
-    var siteTitles = document.querySelectorAll("#Questions")
-    for (var i = 0; i < siteTitles.length; i++) {
-        siteTitles[i].setAttribute("style", "display:block");
-      }
+    var showgame = document.querySelectorAll("#game")
+    for (var i = 0; i < showgame.length; i++) {
+        showgame[i].setAttribute("style", "display:block");
+    }
 
+//Begin Game is hidden
+    let hidebutton = document.getElementById("start").setAttribute("style", "display:none")
+    if (showgame) {
+    hidebutton} ;
+  
+//COUNTDOWN END!
+ if(timeleft <= 0){
+  clearInterval(downloadTimer);
+  document.getElementById("countdown").innerHTML = "Time's up!"
+  //stop test and ask them restart or see results. if restart, display first page, if not show results page.)
+    }}, 1000);
+console.log(countdown);
+
+
+
+});
 // Questions, options, and answers
 var Questions = [
     {
@@ -46,25 +64,11 @@ var Questions = [
     ]
   },
   
-];
-
 
 //Radio buttons to be created.
 // 
-
-//COUNTDOWN END
-    if(timeleft <= 0){
-        clearInterval(downloadTimer);
-        document.getElementById("countdown").innerHTML = "Time's up!"
-        //stop test and ask them restart or see results. if restart, display first page, if not show results page.
-    }
-    }, 1000);
-    console.log(countdown);
-
-
-
-});
-
+  
+];
 
 
 //Questions
