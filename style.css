@@ -27,6 +27,7 @@
 .container > * {
     width:100%;
 }
+
 .flex-column {
     display:flex;
     flex-direction:column;
@@ -45,14 +46,19 @@
     text-align: center;
 }
 
+.inline {
+    display: inline-block;
+    margin: 2rem;
+}
+
 .hidden {
     display: none;
 }
 
-
 p {
     color: black;
 }
+
 
 .intro-text {
     color:white;
@@ -60,22 +66,25 @@ p {
     padding: 2rem;
 }
 .btn {
-
     text-decoration: none;
     font-size: small;
     text-align: center;
+    color:black;
     border: darkblue;
     background-color: whitesmoke;
     margin-bottom: 1rem;
     margin-top: 1rem;
     padding: 1rem 0;
-    width: 5rem;
+    width: 7rem;
+    border-radius: 10%;
 
 }
 .btn:hover {
     cursor: pointer;
-    background-color: chartreuse;
+    background-color: rgb(77, 202, 144);
 }
+
+
 #timer {
     text-align: center;
     color: whitesmoke;
