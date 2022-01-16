@@ -1,24 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Home: Coding Quiz Game</title>
-    <link rel= "stylesheet" href = "style.css">
+  <title>The Coding Quiz</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <div class="container">
-    <div id="home" class="flex-center  flex-column">
-    <h1> Coding Quiz </h1> 
-    <p class="intro-text"> Do YOU have what it takes to pass the coding quiz? <br> 
-        Click start to begin. </p>
-    <a class="btn" href="game.html"> Start </a>
-    <a class="btn" href="scoreboard.html"> Scoreboard </a>
-</div>
-</div>
+  <!-- Nav Bar -->
+      <div class=header>
+        <span id="scoreboard">Scoreboard</span>
+        <span id="timer">Timer: 60 seconds</span>
+  </div>
+
+<!-- Intro page -->
+  <div class="container">
+    <div class="container main">
+      <div>
+        <div>
+          <h1>The Coding Quiz</h1>
+          <p class="quiz-intro">
+           Do YOU have what it takes to pass the QUIZ? <br> Click start to find out.
+          </p>
+          <br>
+          <button type="button" class="start-quiz-btn"> START
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quiz Game -->
+    <div class="quiz">
+      <div>
+        <h3 class="question"></h3>
+        <button type="button" class="btn-choice choice1"></button>
+        <button type="button" class="btn-choice choice2"></button>
+        <button type="button" class="btn-choice choice3"></button>
+        <button type="button" class="btn-choice choice4"></button>
+        <span id="correct-or-incorrect"></span>
+      </div>
+    </div>
 
 
-<script src="js.js"></script>
+  <!-- Record name and score -->
+  <div class="writeName">
+        <h1>Congratulations!</h1>
+        <p>Save your score below:</p>
+        <input type="text" id="name" name="name" placeholder="Enter your name..."><br>
+        <button type="submit" class="btn save-btn">Save</button>
+  </div>
+
+
+  <!-- Scoreboard Section -->
+  <div class="container highscores-section">
+      <div class="highscoreSection">
+        <h1>Scoreboard</h1>
+        <div class="user-scores">
+        </div>
+        <button type="button" class="btn highscore-btn try-again">Try again?</button>
+        <button type="button" class="btn highscore-btn refresh">Refresh</button>
+      </div>
+</div>
+
+  <script src="js.js"></script>
 </body>
+
 </html>
