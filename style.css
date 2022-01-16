@@ -1,4 +1,4 @@
-/* Base Styling */
+/* General Styling */
 html {
     background-image: url("images/computer-coding-background.webp");
     background-size: cover;
@@ -122,7 +122,7 @@ h1 {
 }
 
 
-/* Quiz */
+/* Quiz Game*/
 
 .quiz-section {
     display: none;
@@ -131,7 +131,6 @@ h1 {
 .quiz {
     display: none;
 }
-
 
 /* Scores */
  
@@ -152,3 +151,10 @@ h1 {
 .writeName {
     display: none;
 }
+
+@media screen and (max-width: 600px) {
+    html {
+        width: 100vh;
+        height: 100vh;
+    }
+ }
