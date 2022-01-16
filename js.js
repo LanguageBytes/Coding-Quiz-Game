@@ -1,9 +1,9 @@
-//Timer
+//COUNTDOWN START
 var secondsLeft = 60;
 var timerInterval;
 function startTimer(){
 timerInterval = setInterval(function() {
- secondsLeft --;
+ secondsLeft -=1;
  timer.textContent =  "Your time: " + secondsLeft + " seconds";
         
     if (secondsLeft === 0) {
@@ -50,7 +50,7 @@ D: "Hyper Technical Markup Language"
 var Answers3 = {
 A: "Cascading Stylish Sealions",
 B: "Cascading Super Sheets",
-C: "Crazy Style Sheets",
+C: "Creative Style Sheets",
 D: "Cascading Style Sheets"
 }
 
@@ -108,8 +108,8 @@ if (qaIndex === qs.length - 1) {
     writeName.style.display = "inline";
 }, 500);
 
-//Time's up
-    setTimeout(function(){clearInterval(timerInterval)}, 500);
+//COUNTDOWN END
+    setTimeout(function(){clearInterval(timerInterval)}, 1000);
 
 //Go to next question
 } else {
@@ -132,10 +132,10 @@ if(event.target.matches(".btn-choice")){
     Result.style.display = "block";
         if (chosenAnswer === correctAnswersArray[qaIndex]){
             Result.textContent = "Well done!";
-            setTimeout(function(){ Result.style.display = "none"}, 500);
+            setTimeout(function(){ Result.style.display = "none"}, 1000);
         } else {
             Result.textContent = "That's incorrect..."
-            setTimeout(function(){ Result.style.display = "none"}, 500);
+            setTimeout(function(){ Result.style.display = "none"}, 1000);
             secondsLeft -= 10;
             timer.textContent =  "Your time: " + secondsLeft + " seconds";
         }
