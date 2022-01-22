@@ -16,7 +16,6 @@ h1 {
     font-size: 4rem;
 }
 
-
 .header {
     background-color: rgb(37, 182, 158);
     padding: 30px 80px;
@@ -121,7 +120,6 @@ h1 {
     border-radius: 10%;
 }
 
-
 /* Quiz Game*/
 
 .quiz-section {
@@ -152,7 +150,7 @@ h1 {
     display: none;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1000px) {
     html {
         width: 100vh;
         height: 100vh;
