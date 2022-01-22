@@ -1,4 +1,4 @@
-# # <p align="center"> Coding Quiz Game </p>
+# <p align="center"> Coding Quiz Game </p>
 <br> 
 
 
