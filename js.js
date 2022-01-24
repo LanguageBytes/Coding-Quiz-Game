@@ -209,6 +209,7 @@ for (let i = 0; i< localStorage.length; i++) {
 //Start the quiz again
 document.querySelector(".try-again").addEventListener("click", function(){
 correctIndex = 0;
+qaIndex = 0;
 secondsLeft = 60;
 timer.textContent =  "Your time: 60";
 document.querySelector(".main").style.display = "block";
