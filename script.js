@@ -75,18 +75,13 @@ var saveButton = document.querySelector(".save-btn");
 var highscoreSection = document.querySelector(".highscores-section");
 var viewHighscores = document.querySelector("#scoreboard");
 var deleteHighscores = document.querySelector("#delete")
-
-
 var scores = []
 
-
-localStorage.getItem("scores");
-
+window.onload = function() {
+    localStorage.getItem("scores", scores);
+}
 //Timer function
 function startTimer(){
-
-localStorage.getItem("scores");
-    
     
     timerInterval = setInterval(function() {
      secondsLeft -=1;
@@ -169,6 +164,7 @@ if(event.target.matches(".btn-choice")){
 //Start the quiz again
 document.querySelector(".try-again").addEventListener("click", function(){
     clearInterval(timerInterval);
+    localStorage.getItem("scores");
     correctIndex = 0;
     qaIndex = 0;
     secondsLeft = 60;
@@ -184,15 +180,6 @@ document.querySelector(".try-again").addEventListener("click", function(){
 //Save
 saveButton.addEventListener("click", function(event){
 event.preventDefault();
-//Record
-newUser();        
-
-//Show scores
-
-    writeName.style.display = "none";
-    document.querySelector(".highscores-section").style.display = "block";
-    document.querySelector(".user-scores").style.display = "block";
-})
 
 //Save Results
 function newUser() {
@@ -202,8 +189,8 @@ function newUser() {
         userName = "";
     } 
 
+    
 
-    document.querySelector(".user-scores").textContent = " ";
     var userName = document.querySelector("#name").value;
     var points = secondsLeft + "points";
     var savedScore = document.createElement("p");
@@ -217,11 +204,22 @@ function newUser() {
     localStorage.setItem("scores", scores);
 }
 
+//Record
+newUser();  
+
+//Show scores
+
+    writeName.style.display = "none";
+    document.querySelector(".highscores-section").style.display = "block";
+    document.querySelector(".user-scores").innerHTML = localStorage.scores; 
+})
+
 
 //View scoreboard
 localStorage.getItem("scores");
 viewHighscores.addEventListener("click", function(){
 localStorage.getItem("scores");
+setTimeout(function(){clearInterval(timerInterval)}, 1000);
 document.querySelector(".user-scores").innerHTML = localStorage.scores; 
 document.querySelector(".main").style.display = "none";
 quiz.style.display = "none";
