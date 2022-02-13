@@ -221,8 +221,8 @@ function newUser() {
 //View scoreboard
 localStorage.getItem("scores");
 viewHighscores.addEventListener("click", function(){
-setTimeout(function(){clearInterval(timerInterval)}, 1000);
 localStorage.getItem("scores");
+document.querySelector(".user-scores").innerHTML = localStorage.scores; 
 document.querySelector(".main").style.display = "none";
 quiz.style.display = "none";
 writeName.style.display = "none";
