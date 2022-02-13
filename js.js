@@ -1,19 +1,6 @@
 //COUNTDOWN START
 var secondsLeft = 60;
 var timerInterval;
-function startTimer(){
-timerInterval = setInterval(function() {
- secondsLeft -=1;
- timer.textContent =  "Your time: " + secondsLeft + " seconds";
-        
-    if (secondsLeft === 0) {
-    clearInterval(timerInterval);
-    quiz.style.display = "none";
-    writeName.style.display = "inline";
-            }
-          }, 1000);
-   return timerInterval;
-    }   
 
 //Questions
 var question = document.querySelector(".question");
@@ -48,7 +35,7 @@ D: "Hyper Technical Markup Language"
 }
 
 var Answers3 = {
-A: "Cascading Stylish Sealions",
+A: "Cascading Stylish Sea lions",
 B: "Cascading Super Sheets",
 C: "Creative Style Sheets",
 D: "Cascading Style Sheets"
@@ -87,10 +74,33 @@ var writeName = document.querySelector(".writeName");
 var saveButton = document.querySelector(".save-btn");
 var highscoreSection = document.querySelector(".highscores-section");
 var viewHighscores = document.querySelector("#scoreboard");
+var deleteHighscores = document.querySelector("#delete")
 
+
+//Timer function
+function startTimer(){
+
+localStorage.getItem("scores");
+    
+    
+    timerInterval = setInterval(function() {
+     secondsLeft -=1;
+     timer.textContent =  "Your time: " + secondsLeft + " seconds";
+            
+        if (secondsLeft === 0) {
+        clearInterval(timerInterval);
+        quiz.style.display = "none";
+        writeName.style.display = "inline";
+                }
+              }, 1000);
+       return timerInterval;
+ 
+        }   
+    
 //Timer starts
 startButton.addEventListener("click", startTimer)
 
+    
 //Show quiz questions with the choices
 startButton.addEventListener("click", function(){
     document.querySelector(".main").style.display = "none";
@@ -107,10 +117,6 @@ if (qaIndex === qs.length - 1) {
     setTimeout(function(){quiz.style.display = "none";
     writeName.style.display = "inline";
 }, 500);
-
-//COUNTDOWN END
-    setTimeout(function(){clearInterval(timerInterval)}, 1000);
-
 //Go to next question
 } else {
     question.textContent = qs[qaIndex];
@@ -118,8 +124,11 @@ if (qaIndex === qs.length - 1) {
     choice2.textContent = answers[qaIndex].B;
     choice3.textContent = answers[qaIndex].C;
     choice4.textContent = answers[qaIndex].D;
-}
-}
+}}
+
+//COUNTDOWN END
+    setTimeout(function(){clearInterval(timerInterval)}, 1000);
+
 
 //Was the question correct?
 quiz.addEventListener("click", determineCorrectAnswer)
@@ -151,67 +160,69 @@ if(event.target.matches(".btn-choice")){
 }})
 
 
+//Start the quiz again
+document.querySelector(".try-again").addEventListener("click", function(){
+    clearInterval(timerInterval);
+    correctIndex = 0;
+    qaIndex = 0;
+    secondsLeft = 60;
+    timer.textContent =  "Your time: 60";
+    document.querySelector(".main").style.display = "block";
+    highscoreSection.style.display = "none";
+    preventDefault()
+    });
+
+
 //SCORES
 
 //Save
 saveButton.addEventListener("click", function(event){
 event.preventDefault();
+
 //Record
 newUser();        
+
 //Show scores
+clearInterval(timerInterval);
     writeName.style.display = "none";
     document.querySelector(".highscores-section").style.display = "block";
     document.querySelector(".user-scores").style.display = "block";
 })
 
-
 //Save Results
 function newUser() {
-var userName = document.querySelector("#name").value;
-if (userName === "") {
-userName = "";
-} 
-document.querySelector(".user-scores").textContent = " ";
-var p = document.createElement("p");
-p.textContent = userName + " : " + secondsLeft + " points";
-document.querySelector(".user-scores").appendChild(p);    
 
+    if (userName === "") {
+        userName = "";
+    } 
+
+for (var i = 0; i < localStorage.length; i++) {
+
+    var userName = document.querySelector("#name").value;
+    var points = secondsLeft + "points";
+
+    document.querySelector(".user-scores").textContent = " ";
+    var savedScore = document.createElement("p");
+    savedScore.textContent = userName + " : " + points;
+    document.querySelector(".user-scores").appendChild(savedScore);  
+    localStorage.setItem("scores", savedScore);
 }
-
-//Clear highscore
-document.querySelector(".refresh").addEventListener("click", function(){
-localStorage.clear();
-document.querySelector(".user-scores").textContent = " ";
-document.querySelector(".user-scores").style.display = "none";
-});
-
+}
+  
 
 //View scoreboard
+localStorage.getItem("scores");
 viewHighscores.addEventListener("click", function(){
-clearInterval(timerInterval);
+localStorage.getItem("scores");
 document.querySelector(".main").style.display = "none";
 quiz.style.display = "none";
 writeName.style.display = "none";
 highscoreSection.style.display = "block";
+}
+)
 
-
-//The stored scores
-document.querySelector(".user-scores").textContent = " ";
-for (let i = 0; i< localStorage.length; i++) {
-    var p = document.createElement("p");
-    var user = localStorage.key(i);
-    var scores = localStorage.getItem(localStorage.key(i));
-    p.textContent = user + ": " + scores;
-    document.querySelector(".user-scores").appendChild(p);}
-})
-
-
-//Start the quiz again
-document.querySelector(".try-again").addEventListener("click", function(){
-correctIndex = 0;
-qaIndex = 0;
-secondsLeft = 60;
-timer.textContent =  "Your time: 60";
-document.querySelector(".main").style.display = "block";
-highscoreSection.style.display = "none";
+//Delete History
+deleteHighscores.addEventListener("click", function(){
+    localStorage.removeItem("scores");
+    document.querySelector(".user-scores").textContent = " ";
 })

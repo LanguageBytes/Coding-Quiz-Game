@@ -1,6 +1,5 @@
 # <p align="center"> Coding Quiz Game </p>
-<br> 
-
+<br> <br/>
 
  <p align="center">
   <img src="images/screenshot.gif"/>
