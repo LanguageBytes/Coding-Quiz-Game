@@ -77,6 +77,11 @@ var viewHighscores = document.querySelector("#scoreboard");
 var deleteHighscores = document.querySelector("#delete")
 
 
+var scores = []
+
+
+localStorage.getItem("scores");
+
 //Timer function
 function startTimer(){
 
@@ -192,24 +197,26 @@ newUser();
 //Save Results
 function newUser() {
 
-
+   
     if (userName === "") {
         userName = "";
     } 
 
-for (var i = 0; i < localStorage.length; i++) {
-
-    var userName = document.querySelector("#name").value;
-    var points = secondsLeft + "points";
 
     document.querySelector(".user-scores").textContent = " ";
+    var userName = document.querySelector("#name").value;
+    var points = secondsLeft + "points";
     var savedScore = document.createElement("p");
     savedScore.textContent = userName + " : " + points;
-    document.querySelector(".user-scores").appendChild(savedScore);  
-    localStorage.setItem("scores", savedScore);
+    theScore = savedScore.textContent
+    scores.push(theScore)
+    scores.splice(scores.length, theScore);
+    localStorage.setItem("scores", scores);
+    displayScores = scores.textContent
+    document.querySelector(".user-scores").innerHTML = localStorage.scores; 
+    localStorage.setItem("scores", scores);
 }
-}
-  
+
 
 //View scoreboard
 localStorage.getItem("scores");
