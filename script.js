@@ -115,6 +115,7 @@ function goToNextQuestion(){
 //If finished, the user will be able to save their details
 if (qaIndex === qs.length - 1) {
     setTimeout(function(){quiz.style.display = "none";
+    setTimeout(function(){clearInterval(timerInterval)}, 1000);
     writeName.style.display = "inline";
 }, 500);
 //Go to next question
@@ -178,12 +179,11 @@ document.querySelector(".try-again").addEventListener("click", function(){
 //Save
 saveButton.addEventListener("click", function(event){
 event.preventDefault();
-
 //Record
 newUser();        
 
 //Show scores
-clearInterval(timerInterval);
+
     writeName.style.display = "none";
     document.querySelector(".highscores-section").style.display = "block";
     document.querySelector(".user-scores").style.display = "block";
@@ -191,6 +191,7 @@ clearInterval(timerInterval);
 
 //Save Results
 function newUser() {
+
 
     if (userName === "") {
         userName = "";
